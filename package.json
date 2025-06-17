@@ -1,0 +1,21 @@
+{
+  "name": "spinny",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "push": "git add . && git commit -m \"Auto commit\" && git push",
+    "pull": "git pull"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FaizanAhmed099/spinny.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FaizanAhmed099/spinny/issues"
+  },
+  "homepage": "https://github.com/FaizanAhmed099/spinny#readme"
+}

@@ -1,0 +1,371 @@
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+    line-height: 1.6;
+}
+
+/* Navigation Styles */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background-color: #f8f9fa;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+    display: none;
+    flex-direction: column;
+    min-width: 150px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: flex;
+}
+
+.contact span {
+    font-weight: bold;
+}
+
+/* About Us Section */
+.about-us img {
+    width: 150px;
+    height: 150px;
+}
+
+.about-us p {
+    font-size: 14px;
+}
+
+.about-us a {
+    text-decoration: none;
+    color: purple;
+}
+
+.about-us button {
+    margin-top: 50px;
+    width: 220px;
+    height: 50px;
+    border-radius: 5px;
+    color: white;
+    background-color: #6300a3;
+    border: none;
+    cursor: pointer;
+}
+
+/* Reviews Section */
+.reviews-section {
+    padding: 30px 0;
+}
+
+.star-class {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rating-box {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+    gap: 20px;
+}
+
+.review-card {
+    min-width: 100%;
+    max-width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    flex-shrink: 0;
+}
+
+.review-text {
+    font-size: 15px;
+    color: #333;
+}
+
+.arrow {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+/* Stats Section */
+.pamphlet-box {
+    background-color: #2c004d;
+    border-radius: 12px;
+    margin: 30px auto;
+    max-width: 1200px;
+    color: white;
+}
+
+.pamphlet {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.bg-purple {
+    background-color: #4a0073;
+}
+
+.box p {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* Main Card Carousel Styles */
+.carousel-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 60px;
+}
+
+.card-carousel-wrapper {
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.card-carousel-track {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+    gap: 22px;
+}
+
+.card {
+    flex: 0 0 auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    width: calc(100% - 40px);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-title {
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.card-location {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+}
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    transition: background 0.3s ease;
+}
+
+.nav-button:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.nav-button.left {
+    left: 10px;
+}
+
+.nav-button.right {
+    right: 10px;
+}
+
+.accordion-flush .accordion-item .accordion-button, .accordion-flush .accordion-item .accordion-button.collapsed{
+    padding: 25px;
+}
+
+
+
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-right {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+        margin-top: 15px;
+        display: none;
+    }
+
+    #menu-toggle:checked + .hamburger + .nav-right {
+        display: flex;
+    }
+
+    .about-us p {
+        width: 250px;
+        margin: auto;
+    }
+
+    .star-class {
+        font-size: 12px;
+    }
+
+    .review-card {
+        min-width: 100%;
+        max-width: 100%;
+    }
+
+    .pamphlet-box {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    .carousel-container {
+        padding: 0 50px;
+    }
+
+    .card {
+        width: calc(100% - 20px);
+    }
+
+    .nav-button {
+        font-size: 1.5rem;
+        padding: 8px 12px;
+    }
+}
+
+@media (min-width: 768px) {
+    .review-card {
+        min-width: 48%;
+        max-width: 48%;
+    }
+
+    .card {
+        width: calc(50% - 10px);
+    }
+}
+
+@media (min-width: 992px) {
+    .review-card {
+        min-width: 48%;
+        max-width: 48%;
+    }
+
+    .card {
+        width: calc(33.333% - 14px);
+    }
+}
+
+@media (max-width: 480px) {
+    .pamphlet-box {
+        width: 95%;
+    }
+
+    .carousel-container {
+        padding: 0 40px;
+    }
+
+    .nav-button {
+        font-size: 1.2rem;
+        padding: 6px 10px;
+    }
+}
+@media(max-width:320px){
+    .accordion-flush .accordion-item .accordion-button, .accordion-flush .accordion-item .accordion-button.collapsed{
+        font-size: 12px;
+    }
+    .accordion-body{
+        font-size: 10px;
+    }
+}
