@@ -208,7 +208,7 @@ body {
 .arrow {
     background: none;
     border: none;
-    font-size: 28px;
+    font-size: 20px;
     cursor: pointer;
     padding: 0 10px;
 }
@@ -218,7 +218,7 @@ body {
     background-color: #2c004d;
     border-radius: 12px;
     margin: 30px auto;
-    max-width: 90%;
+    max-width: 80%;
     color: white;
 }
 
@@ -228,7 +228,7 @@ body {
 }
 
 .bg-purple {
-    margin: 20px;
+    margin: 0px;
     background-color: #4a0073;
 }
 
@@ -329,7 +329,9 @@ body {
 .accordion-flush .accordion-item .accordion-button, .accordion-flush .accordion-item .accordion-button.collapsed{
     padding: 25px;
 }
-
+.footer-section{
+   display: none;
+}
 
 
 
@@ -403,7 +405,7 @@ body {
     }
 
     .card {
-        width: calc(33.333% - 14px);
+        width: calc(25.333% - 14px);
     }
 }
 
@@ -422,17 +424,20 @@ body {
     }
 }
 @media(max-width:320px){
-    .faster{
+    /* First Section */
+    .background-section{
+        background: url(https://mda.spinny.com/sp-file-system/public/2025-05-20/b3634df63089417a92932924f191f998/raw/file.png);
+    }
+    .info-icons{
         display: none;
     }
+    
     .accordion-flush .accordion-item .accordion-button, .accordion-flush .accordion-item .accordion-button.collapsed{
         font-size: 14px;
     }
     .accordion-body{
         font-size: 10px;
     }
-
-    /* First Section */
     .arrow{
         display: none;
     }
@@ -454,4 +459,15 @@ body {
         margin: 5px;
         border-radius: 5px;
     }
+    .footer-section{
+    text-align: center;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-around;
+}
+.footer-section p{
+    text-align: center;
+    font-size: 12px;
+}
+
 }
