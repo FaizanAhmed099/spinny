@@ -23,6 +23,7 @@ body {
 }
 
 .logo img {
+    margin: 0px;
     height: 40px;
 }
 
@@ -82,6 +83,52 @@ body {
 .contact span {
     font-weight: bold;
 }
+
+/* First Section  */
+    .background-section {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #240046, #3c096c);
+      color: white;
+      min-height: 100vh;
+    }
+.section-box {
+      background: #fff;
+      color: #000;
+      border-radius: 15px;
+      padding: 30px;
+      max-width: 800px;
+      margin: auto;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    }
+    .brand-grid img {
+      max-width: 70px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+    .brand-grid .col {
+      text-align: center;
+    }
+    .highlight {
+      color: #00c896;
+    }
+    .btn-danger {
+      background-color: #ef4b54;
+      border: none;
+    }
+    .info-icons {
+      margin-top: 30px;
+      color: #00c896;
+    }
+    .info-icons h6 {
+      color: white;
+    }
+    .hero-img {
+      max-width: 100%;
+    }
+
+
+
 
 /* About Us Section */
 .about-us img {
@@ -246,7 +293,7 @@ body {
     background: rgba(0, 0, 0, 0.7);
     border: none;
     color: white;
-    font-size: 2rem;
+    font-size: 1rem;
     padding: 10px 15px;
     cursor: pointer;
     border-radius: 50%;
@@ -363,10 +410,32 @@ body {
 }
 @media(max-width:320px){
     .accordion-flush .accordion-item .accordion-button, .accordion-flush .accordion-item .accordion-button.collapsed{
-        font-size: 12px;
+        font-size: 14px;
     }
     .accordion-body{
         font-size: 10px;
     }
-    
+
+    /* First Section */
+    .arrow{
+        display: none;
+    }
+    .nav-button.left{
+        display: none;
+    }
+    .nav-button.right{
+        display: none;
+    }
+    .input-group>.form-control{
+        width: 100%;
+        
+    }
+    .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating){
+    border-radius: 5px;
+    }
+    .input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback){
+        width: 100%;
+        margin: 5px;
+        border-radius: 5px;
+    }
 }

@@ -101,6 +101,6 @@ window.addEventListener('resize', () => {
 });
 
 // Auto-play for card carousel (optional)
-// setInterval(() => {
-//     moveCardCarousel(1);
-// }, 5000);
+setInterval(() => {
+    moveCardCarousel(1);
+}, 5000);
