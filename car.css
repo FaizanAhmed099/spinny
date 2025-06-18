@@ -254,6 +254,25 @@ body {
     font-size: 15px;
     color: #333;
 }
+.carousel-wrapper {
+  overflow: hidden;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 20px;
+}
+
+.review-card {
+  flex: 0 0 100%;
+  max-width: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
 
 .arrow {
     background: none;
@@ -479,7 +498,9 @@ body {
         background: url(https://mda.spinny.com/sp-file-system/public/2025-05-20/b3634df63089417a92932924f191f998/raw/file.png);
     }
     .info-icons{
-        display: none;
+        display: flex;
+        justify-content: space-between;
+        
     }
     
     .accordion-flush .accordion-item .accordion-button, .accordion-flush .accordion-item .accordion-button.collapsed{
@@ -528,3 +549,10 @@ body {
         text-decoration: none;
     }
     }
+
+    @media (max-width :375)
+
+   .row2{
+    display: flex;
+    flex-direction: row;
+   }
