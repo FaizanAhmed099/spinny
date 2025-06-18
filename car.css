@@ -217,7 +217,7 @@ body {
     width: 50px
     }
 
-Reviews Section
+/* Reviews Section */
 .reviews-section {
     padding: 30px 0;
 }
@@ -235,6 +235,11 @@ Reviews Section
     width: 100%;
 }
 
+.carousel-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
 .carousel-track {
     display: flex;
     transition: transform 0.4s ease-in-out;
@@ -242,8 +247,6 @@ Reviews Section
 }
 
 .review-card {
-    min-width: 100%;
-    max-width: 100%;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
@@ -262,6 +265,58 @@ Reviews Section
     cursor: pointer;
     padding: 0 10px;
 }
+
+/* Responsive card widths */
+@media (min-width: 992px) {
+    .review-card {
+        width: calc(33.333% - 16px); /* 3 cards per view */
+    }
+}
+
+@media (max-width:769px){
+    .reviews-section button{
+        display: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .review-card {
+        width: calc(50% - 12px); /* 2 cards per view */
+    }
+    
+}
+
+@media (max-width: 767px) {
+    .review-card {
+        width: 100%; /* 1 card per view */
+    }
+    
+    .arrow {
+        display: none;
+    }
+}
+
+.scroll-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding-left: 1rem;
+    padding-left: 1rem;
+  }
+  .scroll-carousel::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
+  }
+  .scroll-carousel .card {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    margin-right: 1rem;
+  }
+  @media (min-width: 768px) {
+    .scroll-carousel .card {
+      flex: 0 0 25%; /* 4 cards per view on desktop */
+    }
+  }
 
 /* Stats Section */
 .pamphlet-box {
@@ -290,41 +345,35 @@ Reviews Section
 /* Main Card Carousel Styles */
 .carousel-container {
     position: relative;
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 0 60px;
+    padding: 0 40px;
 }
 
 .card-carousel-wrapper {
     overflow: hidden;
-    border-radius: 10px;
+    position: relative;
 }
 
 .card-carousel-track {
     display: flex;
     transition: transform 0.4s ease-in-out;
-    gap: 22px;
+    gap: 20px;
 }
 
 .card {
-    flex: 0 0 auto;
+    flex: 0 0 calc(25% - 15px);
     background: white;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     overflow: hidden;
     transition: transform 0.3s ease;
-    width: calc(100% - 40px);
-}
-
-.card:hover {
-    transform: translateY(-5px);
 }
 
 .card img {
     width: 100%;
-    height: 50%;
+    height: 200px;
     object-fit: cover;
-    display: block;
 }
 
 .card-content {
@@ -332,20 +381,20 @@ Reviews Section
 }
 
 .card-title {
-    font-weight: bold;
-    font-size: 15px;
-    margin-bottom: 5px;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
 }
 
 .card-location {
-    color: #888;
     font-size: 14px;
-    margin-bottom: 10px;
+    color: #666;
+    margin-bottom: 8px;
 }
 
 .card-text {
     font-size: 14px;
-    color: #333;
+    color: #666;
     line-height: 1.4;
 }
 
@@ -353,27 +402,26 @@ Reviews Section
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #28014d;
+    background: white;
     border: none;
-    color: white;
-    font-size: 1rem;
-    padding: 10px 15px;
-    cursor: pointer;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    z-index: 10;
-    transition: background 0.3s ease;
-}
-
-.nav-button:hover {
-    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
 }
 
 .nav-button.left {
-    left: 10px;
+    left: 0;
 }
 
 .nav-button.right {
-    right: 10px;
+    right: 0;
 }
 
 .accordion-flush .accordion-item .accordion-button, .accordion-flush .accordion-item .accordion-button.collapsed{
@@ -424,22 +472,17 @@ Reviews Section
     }
 
     .carousel-container {
-        padding: 0 50px;
+        padding: 0 30px;
     }
 
     .card {
-        width: calc(100% - 20px);
+        flex: 0 0 calc(25% - 15px);
     }
 
     .nav-button {
-        font-size: 1.5rem;
-        padding: 8px 12px;
-    }
-    .nav-button.right {
-    display: none;
-    }
-    .nav-button.left{
-        display: none;
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
     }
 }
 
@@ -461,24 +504,51 @@ Reviews Section
     }
 
     .card {
-        width: calc(25.333% - 14px);
+        flex: 0 0 calc(25% - 15px);
+        max-width: calc(25% - 15px);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .card {
+        flex: 0 0 calc(33.333% - 14px);
+        max-width: calc(33.333% - 14px);
+    }
+}
+
+@media (max-width: 767.98px) {
+    .card {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .arrow {
+        display: none;
     }
 }
 
 @media (max-width: 480px) {
-    .pamphlet-box {
-        width: 95%;
+    .card {
+        flex: 0 0 100%;
+        min-width: 100%;
+        max-width: 100%;
     }
-
+    
+    .card img {
+        height: 200px;
+    }
+    
     .carousel-container {
-        padding: 0 40px;
+        padding: 0 30px;
     }
-
+    
     .nav-button {
-        font-size: 1.2rem;
-        padding: 6px 10px;
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
     }
 }
+
 @media(max-width:320px){
     /* First Section */
     .background-section{

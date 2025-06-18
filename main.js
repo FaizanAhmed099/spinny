@@ -5,14 +5,14 @@ const reviewCards = document.querySelectorAll('.review-card');
 
 function getVisibleReviewCards() {
     const width = window.innerWidth;
-    if (width >= 992) return 2;
-    if (width >= 768) return 2;
-    return 1;
+    if (width >= 992) return 3; // Desktop: 3 cards
+    if (width >= 768) return 2; // Tablet: 2 cards
+    return 1; // Mobile: 1 card
 }
 
 function updateReviewCarousel() {
     if (reviewCards.length === 0) return;
-    const cardWidth = reviewCards[0].offsetWidth + 20;
+    const cardWidth = reviewCards[0].offsetWidth + 24; // 24px is the gap
     reviewTrack.style.transform = `translateX(-${reviewIndex * cardWidth}px)`;
 }
 
@@ -20,8 +20,9 @@ function moveReviewCarousel(direction) {
     const visible = getVisibleReviewCards();
     const maxIndex = reviewCards.length - visible;
 
-    reviewIndex += direction * visible;
+    reviewIndex += direction;
 
+    // Infinite loop logic
     if (reviewIndex < 0) {
         reviewIndex = maxIndex;
     } else if (reviewIndex > maxIndex) {
@@ -29,6 +30,19 @@ function moveReviewCarousel(direction) {
     }
 
     updateReviewCarousel();
+}
+
+// Auto-slide functionality
+let autoSlideInterval;
+
+function startAutoSlide() {
+    autoSlideInterval = setInterval(() => {
+        moveReviewCarousel(1);
+    }, 3000); // Change slide every 3 seconds
+}
+
+function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
 }
 
 // Main Card Carousel Logic
@@ -54,22 +68,17 @@ function initializeCardCarousel() {
         allCards.push(clone);
     });
 }
-setInterval(() => {
-    moveReviewCarousel(1);
-}, 5000);
-
-
 
 function getVisibleCards() {
     const width = window.innerWidth;
-    if (width >= 992) return 3;
-    if (width >= 768) return 2;
-    return 1;
+    if (width >= 992) return 4; // Desktop: 4 cards
+    if (width >= 768) return 3; // Tablet: 3 cards
+    return 1; // Mobile: 1 card
 }
 
 function updateCardCarousel() {
     if (allCards.length === 0) return;
-    const cardWidth = allCards[0].offsetWidth + 20;
+    const cardWidth = allCards[0].offsetWidth + 20; // 20px is the gap
     cardTrack.style.transform = `translateX(-${cardIndex * cardWidth}px)`;
 }
 
@@ -77,7 +86,7 @@ function moveCardCarousel(direction) {
     const visible = getVisibleCards();
     const originalCardCount = allCards.length / 3; // Since we tripled the cards
     
-    cardIndex += direction * visible;
+    cardIndex += direction;
     
     // Infinite loop logic
     if (cardIndex >= originalCardCount * 2) {
@@ -94,6 +103,7 @@ window.addEventListener('load', () => {
     initializeCardCarousel();
     updateReviewCarousel();
     updateCardCarousel();
+    startAutoSlide();
 });
 
 // Handle window resize
@@ -107,8 +117,10 @@ setInterval(() => {
     moveCardCarousel(1);
 }, 5000);
 
-
-
+// Pause auto-slide when hovering over the carousel
+const carouselWrapper = document.querySelector('.carousel-wrapper');
+carouselWrapper.addEventListener('mouseenter', stopAutoSlide);
+carouselWrapper.addEventListener('mouseleave', startAutoSlide);
 
 // video button
 
