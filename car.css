@@ -417,11 +417,11 @@ body {
 }
 
 .nav-button.left {
-    left: 0;
+    left: -10px;
 }
 
 .nav-button.right {
-    right: 0;
+    right: -8px;
 }
 
 .accordion-flush .accordion-item .accordion-button, .accordion-flush .accordion-item .accordion-button.collapsed{
