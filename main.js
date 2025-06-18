@@ -104,3 +104,23 @@ window.addEventListener('resize', () => {
 setInterval(() => {
     moveCardCarousel(1);
 }, 5000);
+
+
+
+
+// video button
+ const videoBtn = document.getElementById('videoBtn');
+  const videoPopup = document.getElementById('videoPopup');
+  const closePopup = document.getElementById('closePopup');
+  const popupVideo = document.getElementById('popupVideo');
+
+  videoBtn.addEventListener('click', () => {
+    videoPopup.style.display = 'flex';
+    popupVideo.play();
+  });
+
+  closePopup.addEventListener('click', () => {
+    popupVideo.pause();
+    popupVideo.currentTime = 0;
+    videoPopup.style.display = 'none';
+  });

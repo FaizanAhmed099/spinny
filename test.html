@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fullscreen Video Popup</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Button Style */
+    #videoBtn {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    /* Overlay */
+    .video-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* Video */
+    .video-overlay video {
+      width: 100%;
+      height: auto;
+      max-height: 90vh;
+    }
+
+    /* Close Button */
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 30px;
+      background: none;
+      color: white;
+      border: none;
+      cursor: pointer;
+      z-index: 1001;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Trigger Button -->
+<button id="videoBtn">Watch how it works</button>
+
+<!-- Fullscreen Video Popup -->
+<div class="video-overlay" id="videoPopup">
+  <button class="close-btn" id="closePopup">&times;</button>
+  <video
+    controls
+    controlsList="nodownload"
+    preload="auto"
+    poster=""
+    id="popupVideo"
+    src="http://spn-sta.spinny.com/spinny-web/static-images/web-asset/videos/sell_right_by_spinny.mp4#t=0.01"
+  ></video>
+</div>
+
+<script>
+  const videoBtn = document.getElementById('videoBtn');
+  const videoPopup = document.getElementById('videoPopup');
+  const closePopup = document.getElementById('closePopup');
+  const popupVideo = document.getElementById('popupVideo');
+
+  videoBtn.addEventListener('click', () => {
+    videoPopup.style.display = 'flex';
+    popupVideo.play();
+  });
+
+  closePopup.addEventListener('click', () => {
+    popupVideo.pause();
+    popupVideo.currentTime = 0;
+    videoPopup.style.display = 'none';
+  });
+</script>
+
+</body>
+</html>
