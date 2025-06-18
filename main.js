@@ -5,14 +5,13 @@ const reviewCards = document.querySelectorAll('.review-card');
 
 function getVisibleReviewCards() {
     const width = window.innerWidth;
-    if (width >= 992) return 3;
-    if (width >= 768) return 3;
+    if (width >= 992) return 2;
+    if (width >= 768) return 2;
     return 1;
 }
 
 function updateReviewCarousel() {
     if (reviewCards.length === 0) return;
-    
     const cardWidth = reviewCards[0].offsetWidth + 20;
     reviewTrack.style.transform = `translateX(-${reviewIndex * cardWidth}px)`;
 }
@@ -58,6 +57,8 @@ function initializeCardCarousel() {
 setInterval(() => {
     moveReviewCarousel(1);
 }, 5000);
+
+
 
 function getVisibleCards() {
     const width = window.innerWidth;
@@ -110,6 +111,7 @@ setInterval(() => {
 
 
 // video button
+
  const videoBtn = document.getElementById('videoBtn');
   const videoPopup = document.getElementById('videoPopup');
   const closePopup = document.getElementById('closePopup');
